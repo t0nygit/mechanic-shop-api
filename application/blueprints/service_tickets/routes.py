@@ -77,3 +77,65 @@ def remove_mechanic(ticket_id, mechanic_id):
     db.session.commit()
     
     return jsonify({"message": f"Mechanic {mechanic_id} removed from ticket {ticket_id}."}), 200
+
+# UPDATE - PUT edit mechanics on a service ticket
+@service_tickets_bp.route('/<int:ticket_id>/edit', methods=['PUT'])
+def edit_ticket_mechanics(ticket_id):
+    """
+    Edit mechanics assigned to a service ticket
+    Pass in arrays of mechanic IDs to add or remove
+    """
+    ticket = db.session.get(ServiceTicket, ticket_id)
+    if not ticket:
+        return jsonify({"error": "Service ticket not found."}), 404
+    
+    data = request.json
+    remove_ids = data.get('remove_ids', [])  # List of mechanic IDs to remove
+    add_ids = data.get('add_ids', [])        # List of mechanic IDs to add
+    
+    # Remove mechanics
+    for mechanic_id in remove_ids:
+        mechanic = db.session.get(Mechanic, mechanic_id)
+        if mechanic and mechanic in ticket.mechanics:
+            ticket.mechanics.remove(mechanic)
+    
+    # Add mechanics
+    for mechanic_id in add_ids:
+        mechanic = db.session.get(Mechanic, mechanic_id)
+        if mechanic and mechanic not in ticket.mechanics:
+            ticket.mechanics.append(mechanic)
+    
+    db.session.commit()
+    
+    return jsonify({
+        "message": f"Ticket {ticket_id} mechanics updated successfully",
+        "mechanics": [{"id": m.id, "name": m.name} for m in ticket.mechanics]
+    }), 200
+
+# ADD PART - POST add a part to a service ticket
+@service_tickets_bp.route('/<int:ticket_id>/add-part/<int:part_id>', methods=['POST'])
+def add_part_to_ticket(ticket_id, part_id):
+    """
+    Add an inventory part to a service ticket
+    """
+    ticket = db.session.get(ServiceTicket, ticket_id)
+    if not ticket:
+        return jsonify({"error": "Service ticket not found."}), 404
+    
+    from application.models import Inventory
+    part = db.session.get(Inventory, part_id)
+    if not part:
+        return jsonify({"error": "Inventory item not found."}), 404
+    
+    # Check if part is already on the ticket
+    if part in ticket.parts:
+        return jsonify({"error": "Part already added to this ticket."}), 400
+    
+    # Add part to the ticket
+    ticket.parts.append(part)
+    db.session.commit()
+    
+    return jsonify({
+        "message": f"Part '{part.name}' added to ticket {ticket_id}",
+        "parts": [{"id": p.id, "name": p.name, "price": p.price} for p in ticket.parts]
+    }), 200

@@ -1,13 +1,14 @@
 from flask import request, jsonify
 from marshmallow import ValidationError
 from sqlalchemy import select
-from application.extensions import db
+from application.extensions import db, limiter
 from application.models import Mechanic
 from application.blueprints.mechanics.schemas import mechanic_schema, mechanics_schema
 from application.blueprints.mechanics import mechanics_bp
 
 # CREATE - POST a new mechanic
 @mechanics_bp.route('/', methods=['POST'])
+@limiter.limit("10 per hour")  # Limit: Only 10 mechanic creations per hour
 def create_mechanic():
     try:
         mechanic_data = mechanic_schema.load(request.json)
@@ -80,3 +81,28 @@ def delete_mechanic(mechanic_id):
     db.session.commit()
     
     return jsonify({"message": f"Mechanic id: {mechanic_id} successfully deleted."}), 200
+
+# GET mechanics sorted by most tickets worked
+@mechanics_bp.route('/most-active', methods=['GET'])
+def get_most_active_mechanics():
+    """
+    Returns mechanics sorted by number of tickets they've worked on (most to least)
+    Uses the mechanics' relationship to service_tickets to count their activity
+    """
+    query = select(Mechanic)
+    mechanics = db.session.execute(query).scalars().all()
+    
+    # Sort mechanics by number of service tickets (most to least)
+    mechanics.sort(key=lambda m: len(m.service_tickets), reverse=True)
+    
+    # Create response with mechanic info and ticket count
+    result = []
+    for mechanic in mechanics:
+        result.append({
+            "id": mechanic.id,
+            "name": mechanic.name,
+            "email": mechanic.email,
+            "tickets_worked": len(mechanic.service_tickets)
+        })
+    
+    return jsonify(result), 200

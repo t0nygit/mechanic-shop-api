@@ -1,0 +1,953 @@
+{
+	"info": {
+		"_postman_id": "aaea67f4-ce67-4bfb-b304-8d50b5473c9d",
+		"name": "Mechanic Shop API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48273022",
+		"_collection_link": "https://tonybevilacqua23-2561522.postman.co/workspace/Tony-Bevilacqua's-Workspace~f9444ac6-76d2-48f1-859c-499cc6820179/collection/48273022-aaea67f4-ce67-4bfb-b304-8d50b5473c9d?action=share&source=collection_link&creator=48273022"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Sarah Johnson\",\n  \"email\": \"sarah.johnson@email.com\",\n  \"phone\": \"310-555-1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers/999",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Sarah Johnson-Smith\",\n  \"email\": \"sarah.jsmith@email.com\",\n  \"phone\": \"310-555-9999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Mike Wilson\",\n  \"email\": \"mike.wilson@email.com\",\n  \"phone\": \"555-7777\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Tony Stark\",\n  \"email\": \"tony@mechanics.com\",\n  \"phone\": \"555-9999\",\n  \"salary\": 75000.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/mechanics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mechanics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Service Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"VIN\": \"1HGBH41JXMN109186\",\n  \"service_date\": \"2025-10-10\",\n  \"service_desc\": \"Oil change and tire rotation\",\n  \"customer_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Sarah Johnson\",\n  \"email\": \"sarah.johnson@email.com\",\n  \"phone\": \"310-555-1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Service Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"VIN\": \"1HGBH41JXMN109186\",\n  \"service_date\": \"2025-10-10\",\n  \"service_desc\": \"Oil change and tire rotation\",\n  \"customer_id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Mechanics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/mechanics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mechanics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Mechanic Ticket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets/1/assign-mechanic/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets",
+						"1",
+						"assign-mechanic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Mechanic Ticket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets/1/remove-mechanic/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets",
+						"1",
+						"remove-mechanic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Customer Six\",\n  \"email\": \"customer6@email.com\",\n  \"phone\": \"555-0006\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"testuser@email.com\",\n  \"phone\": \"555-1111\",\n  \"password\": \"mypassword123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"testuser@email.com\",\n  \"password\": \"mypassword123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Service Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"VIN\": \"ABC123XYZ456\",\n  \"service_date\": \"2025-10-20\",\n  \"service_desc\": \"Brake repair and oil change\",\n  \"customer_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token Test",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjA4MDk3MDgsImlhdCI6MTc2MDgwNjEwOCwic3ViIjoiMSJ9.mv2u56KQm5RBIuWJLpfIJtnvJovgKq8zB2r1eiwCQTU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers/my-tickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers",
+						"my-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Updated Route",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjA4MDk3MDgsImlhdCI6MTc2MDgwNjEwOCwic3ViIjoiMSJ9.mv2u56KQm5RBIuWJLpfIJtnvJovgKq8zB2r1eiwCQTU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Updated Test User\",\n  \"email\": \"testuser@email.com\",\n  \"phone\": \"555-9999\",\n  \"password\": \"mypassword123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Service Tickets",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"remove_ids\": [],\n  \"add_ids\": [1]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets/1/edit",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets",
+						"1",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Mechanics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/mechanics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mechanics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Mechanics",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Natasha Romanoff\",\n  \"email\": \"natasha@mechanics.com\",\n  \"phone\": \"555-3333\",\n  \"salary\": 85000.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/mechanics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"mechanics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add/Remove Mechanics",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"remove_ids\": [1],\n  \"add_ids\": [2, 3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets/1/edit",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets",
+						"1",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Mechanics",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"remove_ids\": [],\n  \"add_ids\": [1]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets/1/edit",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets",
+						"1",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Most Active Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Pagination Test",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create Parts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Spark Plugs\",\n  \"price\": 45.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/inventory",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Inventory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/inventory",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers?page=1&page_size=10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Peter Parker\",\n  \"email\": \"spiderman@avengers.com\",\n  \"phone\": \"555-7777\",\n  \"password\": \"webslinger123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Service Ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"VIN\": \"1HGBH41JXMN109186\",\n  \"service_date\": \"2025-10-20\",\n  \"service_desc\": \"Brake repair and oil change\",\n  \"customer_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Part",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/service-tickets/1/add-part/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"service-tickets",
+						"1",
+						"add-part",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

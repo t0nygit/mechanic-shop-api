@@ -6,8 +6,9 @@ class Customer(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False, unique=True)
     phone = db.Column(db.String(20), nullable=False)
+    password = db.Column(db.String(255), nullable=False)  # NEW PASSWORD FIELD
     
     # Relationship: one customer can have many service tickets
     service_tickets = db.relationship('ServiceTicket', backref='customer', lazy=True)
@@ -43,3 +44,21 @@ service_mechanics = db.Table('service_mechanics',
     db.Column('ticket_id', db.Integer, db.ForeignKey('service_tickets.id'), primary_key=True),
     db.Column('mechanic_id', db.Integer, db.ForeignKey('mechanics.id'), primary_key=True)
 )
+
+# Junction Table for Inventory and Service Tickets (Many-to-Many)
+inventory_service_ticket = db.Table('inventory_service_ticket',
+    db.Column('inventory_id', db.Integer, db.ForeignKey('inventory.id'), primary_key=True),
+    db.Column('ticket_id', db.Integer, db.ForeignKey('service_tickets.id'), primary_key=True)
+)
+
+
+# Inventory Model
+class Inventory(db.Model):
+    __tablename__ = 'inventory'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    
+    # Many-to-many relationship with service tickets
+    service_tickets = db.relationship('ServiceTicket', secondary=inventory_service_ticket, backref='parts')

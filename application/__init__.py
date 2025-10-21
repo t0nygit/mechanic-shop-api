@@ -1,5 +1,5 @@
 from flask import Flask
-from application.extensions import db, ma
+from application.extensions import db, ma, limiter, cache
 from config import Config
 
 def create_app():
@@ -11,14 +11,18 @@ def create_app():
     # Initialize extensions
     db.init_app(app)
     ma.init_app(app)
+    limiter.init_app(app)
+    cache.init_app(app)
     
     # Register blueprints
     from application.blueprints.customers import customers_bp
     from application.blueprints.mechanics import mechanics_bp
     from application.blueprints.service_tickets import service_tickets_bp
+    from application.blueprints.inventory import inventory_bp
     
     app.register_blueprint(customers_bp)
     app.register_blueprint(mechanics_bp)
     app.register_blueprint(service_tickets_bp)
+    app.register_blueprint(inventory_bp)
     
     return app
