@@ -13,6 +13,51 @@ A comprehensive RESTful API built with Flask for managing a mechanic shop's cust
 - **Caching**: Improved performance for frequently accessed data
 - **Advanced Queries**: Sorting, filtering, and pagination support
 
+## API Documentation
+
+Interactive API documentation is available via Swagger UI at:
+```
+http://127.0.0.1:5000/api/docs
+```
+
+The documentation includes:
+- Complete endpoint descriptions
+- Request/response examples
+- Interactive testing interface
+- Authentication requirements for protected routes
+
+## Testing
+
+This project includes comprehensive test coverage using Python's unittest framework.
+
+### Running Tests
+
+Run all tests:
+```bash
+python3 -m unittest discover tests
+```
+
+Run specific test suite:
+```bash
+python3 -m unittest tests.test_customers
+python3 -m unittest tests.test_mechanics
+python3 -m unittest tests.test_service_tickets
+python3 -m unittest tests.test_inventory
+```
+
+### Test Coverage
+- **29 total tests** covering all API endpoints
+- Positive and negative test cases
+- Token authentication testing
+- Database integrity testing
+- All tests use isolated SQLite test database
+
+**Test Files:**
+- `tests/test_customers.py` - 8 tests
+- `tests/test_mechanics.py` - 7 tests  
+- `tests/test_service_tickets.py` - 7 tests
+- `tests/test_inventory.py` - 7 tests
+
 ## Technologies Used
 
 - Flask
@@ -23,6 +68,9 @@ A comprehensive RESTful API built with Flask for managing a mechanic shop's cust
 - PyJWT (Token Authentication)
 - MySQL
 - Postman (API Testing)
+- Flask-Swagger & Flask-Swagger-UI (API Documentation)
+- Python unittest (Testing Framework)
+- SQLite (Testing Database)
 
 ## Database Structure
 
@@ -86,7 +134,7 @@ venv\Scripts\activate  # Windows
 
 3. Install dependencies
 ```bash
-pip install flask flask-sqlalchemy flask-marshmallow marshmallow-sqlalchemy mysql-connector-python flask-limiter flask-caching pyjwt
+pip install flask flask-sqlalchemy flask-marshmallow marshmallow-sqlalchemy mysql-connector-python flask-limiter flask-caching pyjwt flask-swagger flask_swagger_ui
 ```
 
 4. Set up MySQL database
