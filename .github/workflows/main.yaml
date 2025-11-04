@@ -1,0 +1,50 @@
+name: Mechanic Shop API CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flask flask-sqlalchemy flask-marshmallow marshmallow-sqlalchemy flask-limiter flask-caching pyjwt flask-swagger flask_swagger_ui mysql-connector-python
+
+      - name: Print debugging information
+        run: |
+          echo "Python Version: $(python --version)"
+          echo "Working Directory: $(pwd)"
+          echo "Contents: $(ls -l)"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flask flask-sqlalchemy flask-marshmallow marshmallow-sqlalchemy flask-limiter flask-caching pyjwt flask-swagger flask_swagger_ui mysql-connector-python
+
+      - name: Run tests
+        run: python -m unittest discover tests
