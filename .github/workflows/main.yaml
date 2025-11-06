@@ -41,6 +41,19 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Create config.py for testing
+        run: |
+          cat > config.py << 'EOF'
+          class Config:
+              SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+              SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+          class TestConfig(Config):
+              TESTING = True
+              SQLALCHEMY_DATABASE_URI = 'sqlite:///testing.db'
+              SQLALCHEMY_TRACK_MODIFICATIONS = False
+          EOF
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
