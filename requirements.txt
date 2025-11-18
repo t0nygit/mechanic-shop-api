@@ -1,4 +1,3 @@
-altgraph @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/altgraph-0.17.2-py2.py3-none-any.whl
 backports-datetime-fromisoformat==2.0.3
 blinker==1.9.0
 cachelib==0.13.0
@@ -11,15 +10,12 @@ flask-marshmallow==1.3.0
 Flask-SQLAlchemy==3.1.1
 flask-swagger==0.2.14
 flask-swagger-ui==5.21.0
-future @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/future-0.18.2-py3-none-any.whl
 greenlet==3.2.4
 gunicorn==23.0.0
 importlib_metadata==8.7.0
 itsdangerous==2.2.0
 Jinja2==3.1.6
 limits==4.2
-macholib @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/macholib-1.15.2-py2.py3-none-any.whl
-markdown-it-py==3.0.0
 MarkupSafe==3.0.3
 marshmallow==4.0.1
 marshmallow-sqlalchemy==1.4.2
@@ -32,7 +28,6 @@ Pygments==2.19.2
 PyJWT==2.10.1
 PyYAML==6.0.3
 rich==13.9.4
-six @ file:///System/Volumes/Data/SWE/Apps/DT/BuildRoots/BuildRoot7/ActiveBuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-133.100.1.1/six-1.15.0-py2.py3-none-any.whl
 SQLAlchemy==2.0.44
 typing_extensions==4.15.0
 Werkzeug==3.1.3
