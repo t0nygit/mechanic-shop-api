@@ -3,7 +3,7 @@ info:
   title: "Mechanic Shop API"
   description: "API for managing a mechanic shop with customers, mechanics, service tickets, and appointments"
   version: "1.0.0"
-host: "127.0.0.1:5000"
+host: "mechanic-shop-api-ky91.onrender.com"
 schemes:
   - "http"
 consumes:
