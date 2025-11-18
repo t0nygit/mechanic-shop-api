@@ -1,9 +1,10 @@
+import os
 from datetime import datetime, timedelta, timezone
 from functools import wraps
 from flask import request, jsonify
 import jwt
 
-SECRET_KEY = "your_super_secret_mechanic_shop_key_change_this_in_production"
+SECRET_KEY = os.environ.get('SECRET_KEY') or "fallback_key_for_testing"
 
 def encode_token(customer_id):
     """Generate a JWT token for a customer"""
